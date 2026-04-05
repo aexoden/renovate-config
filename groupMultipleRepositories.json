@@ -1,0 +1,33 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Group packages that are commonly in multiple repositories",
+
+  // This is primarily to attempt to ensure that packages are updated at the same time across the many ways they might
+  // be included. A non-exhaustive list of example locations includes Dockerfiles, pre-commit configuration, CI
+  // workflows and Devbox configuration.
+  //
+  // There is currently no Renovate functionality to directly ensure these versions are in sync. If that's important,
+  // a separate CI job is recommended to validate that they are the same.
+  "packageRules": [
+    {
+      "groupName": "Node.js",
+      "matchPackageNames": ["node", "nodejs"]
+    },
+    {
+      "groupName": "pnpm",
+      "matchPackageNames": ["pnpm"]
+    },
+    {
+      "groupName": "Python",
+      "matchPackageNames": ["python"]
+    },
+    {
+      "groupName": "Rust",
+      "matchPackageNames": ["rust"]
+    },
+    {
+      "groupName": "uv",
+      "matchPackageNames": ["ghcr.io/astral-sh/uv", "uv"]
+    }
+  ]
+}

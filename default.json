@@ -8,6 +8,9 @@
     // Enable automerge
     "github>aexoden/renovate-config:automerge",
 
+    // Group updates for packages that can be in multiple repositories (e.g. node, uv)
+    "github>aexoden/renovate-config:groupMultipleRepositories",
+
     // Set minimumReleaseAge for all datasources
     "github>aexoden/renovate-config:minimumReleaseAge",
 
