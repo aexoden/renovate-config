@@ -22,4 +22,4 @@ Alternately, you can specify a specific preset:
 ## License
 
 To the extent that any of this is non-trivial enough to be copyrightable, it is
-licensed under the MIT license ([LICENSE-MIT](LICENSE-MIT) or <http://opensource.org/licenses/MIT>).
+licensed under the MIT license ([LICENSE](LICENSE) or <http://opensource.org/licenses/MIT>).
