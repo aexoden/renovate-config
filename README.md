@@ -15,7 +15,7 @@ Alternately, you can specify a specific preset:
 
 ```json
 {
-    "extends": ["github>aexoden/renovate-config//automerge"]
+    "extends": ["github>aexoden/renovate-config:automerge"]
 }
 ```
 
