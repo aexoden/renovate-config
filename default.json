@@ -8,7 +8,13 @@
     // Enable automerge
     "github>aexoden/renovate-config:automerge",
 
+    // Set minimumReleaseAge for all datasources
+    "github>aexoden/renovate-config:minimumReleaseAge",
+
     // Pin dependencies by default
     "github>aexoden/renovate-config:rangeStrategyPin"
-  ]
+  ],
+
+  // Ignore the best-practices minimumReleaseAgeNpm configuration as it conflicts with ours.
+  "ignorePresets": ["security:minimumReleaseAgeNpm"]
 }

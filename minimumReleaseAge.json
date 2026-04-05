@@ -1,0 +1,51 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Wait until packages are a week old before raising updates",
+
+  // Set the internal checks filter to strict explicitly (strict is currently the default)
+  "internalChecksFilter": "strict",
+
+  // Enable a minimum release age by default for all datasources
+  "minimumReleaseAge": "7 days",
+  "minimumReleaseAgeBehaviour": "timestamp-required",
+
+  "packageRules": [
+    // Renovate does not support minimum release age for lock file maintenance. There are pending issues regarding
+    // passing this information to the underlying package managers.
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate's lock file maintenance functionality does not support validating Minimum Release Age, as the package manager performs the required changes to update package(s). Confirm whether your package manager perform its own validation for the Minimum Release Age of packages."
+      ]
+    },
+
+    // Renovate does not currently support minimum release age for replacements
+    {
+      "matchUpdateTypes": ["replacement"],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate's replacement functionality [does not currently](https://github.com/renovatebot/renovate/issues/39400) wire in the release age for a package, so the Minimum Release Age checks can apply. You will need to manually validate the Minimum Release Age for these package(s)."
+      ]
+    },
+
+    // Renovate does not currently support minimum release age for pinning
+    {
+      "matchUpdateTypes": ["pin"],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate's pin functionality [does not currently](https://github.com/renovatebot/renovate/issues/40288) wire in the release age for a package, so the Minimum Release Age checks can apply. You will need to manually validate the Minimum Release Age for these package(s)."
+      ]
+    },
+
+    // Devbox is almost always several days behind, so slightly reduce the minimumReleaseAge to hopefully counteract
+    // that somewhat. However, we keep the value of 3 days to provide some protection in case of a nixpkgs compromise.
+    {
+      "matchDatasources": ["devbox"],
+      "minimumReleaseAge": "3 days"
+    }
+  ],
+
+  // Wait until status checks have completed before raising the PR
+  "prCreation": "not-pending"
+}
