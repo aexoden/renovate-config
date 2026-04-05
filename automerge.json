@@ -1,0 +1,29 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Enable automerge for lock files and likely non-breaking updates",
+
+  // Enable lock file maintenance with automerge
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+
+  "packageRules": [
+    // Automerge minor and patch updates for v1.0.0+ packages
+    {
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^0/",
+      "automerge": true
+    },
+
+    // Automerge patch updates for v0.x.x packages
+    {
+      "matchUpdateTypes": ["patch"],
+      "matchCurrentVersion": "/^0/",
+      "automerge": true
+    }
+  ],
+
+  // Disable platform automerge (as you cannot enforce the renovate/artifacts check with it enabled)
+  "platformAutomerge": false
+}
