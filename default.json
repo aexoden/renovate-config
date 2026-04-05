@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  // Base the configuration on the official best-practices preset
+  "extends": ["config:best-practices"]
+}
