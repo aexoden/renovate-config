@@ -12,7 +12,10 @@
     "github>aexoden/renovate-config:minimumReleaseAge",
 
     // Pin dependencies by default
-    "github>aexoden/renovate-config:rangeStrategyPin"
+    "github>aexoden/renovate-config:rangeStrategyPin",
+
+    // Enable updates of Rust toolchain
+    "github>Turbo87/renovate-config//rust/updateToolchain"
   ],
 
   // Ignore the best-practices minimumReleaseAgeNpm configuration as it conflicts with ours.
