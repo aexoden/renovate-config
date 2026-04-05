@@ -1,0 +1,7 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Set the rangeStrategy to pin",
+
+  // Pin dependencies by default as the vast majority of my projects are applications
+  "rangeStrategy": "pin"
+}

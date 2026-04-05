@@ -6,6 +6,9 @@
     "config:best-practices",
 
     // Enable automerge
-    "github>aexoden/renovate-config:automerge"
+    "github>aexoden/renovate-config:automerge",
+
+    // Pin dependencies by default
+    "github>aexoden/renovate-config:rangeStrategyPin"
   ]
 }
