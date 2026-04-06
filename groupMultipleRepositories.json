@@ -11,23 +11,28 @@
   "packageRules": [
     {
       "groupName": "Node.js",
-      "matchPackageNames": ["node", "nodejs"]
+      "matchPackageNames": ["node", "nodejs"],
+      "matchUpdateTypes": ["major", "minor", "patch"]
     },
     {
       "groupName": "pnpm",
-      "matchPackageNames": ["pnpm"]
+      "matchPackageNames": ["pnpm"],
+      "matchUpdateTypes": ["major", "minor", "patch"]
     },
     {
       "groupName": "Python",
-      "matchPackageNames": ["python"]
+      "matchPackageNames": ["python"],
+      "matchUpdateTypes": ["major", "minor", "patch"]
     },
     {
       "groupName": "Rust",
-      "matchPackageNames": ["rust"]
+      "matchPackageNames": ["rust"],
+      "matchUpdateTypes": ["major", "minor", "patch"]
     },
     {
       "groupName": "uv",
-      "matchPackageNames": ["ghcr.io/astral-sh/uv", "uv"]
+      "matchPackageNames": ["ghcr.io/astral-sh/uv", "uv"],
+      "matchUpdateTypes": ["major", "minor", "patch"]
     }
   ]
 }
