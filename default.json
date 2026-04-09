@@ -14,6 +14,9 @@
     // Group updates for packages that can be in multiple repositories (e.g. node, uv)
     "github>aexoden/renovate-config:groupMultipleRepositories",
 
+    // Set branch and PR limits
+    "github>aexoden/renovate-config:limits",
+
     // Set minimumReleaseAge for all datasources
     "github>aexoden/renovate-config:minimumReleaseAge",
 
