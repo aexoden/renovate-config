@@ -41,6 +41,19 @@
       "prCreation": "immediate"
     },
 
+    // Renovate does not currently effectively support minimum release age for digest updates. While it, according to
+    // the documentation, depends on the datasource, it doesn't seem to work for digest updates on Docker Hub, which
+    // should be a supported datasource as far as I can tell. These updates aren't merged automatically in any case,
+    // though the minor attack surface from a new digest being allowed to run in CI remains.
+    {
+      "matchUpdateTypes": ["digest"],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Renovate's digest functionality does not currently seem to usefully support minimum release age. You will need to manually validate the Minimum Release Age for these package(s)."
+      ],
+      "prCreation": "immediate"
+    },
+
     // Devbox is almost always several days behind, so slightly reduce the minimumReleaseAge to hopefully counteract
     // that somewhat. However, we keep the value of 3 days to provide some protection in case of a nixpkgs compromise.
     {
