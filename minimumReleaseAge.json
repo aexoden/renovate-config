@@ -49,6 +49,6 @@
     }
   ],
 
-  // Wait until status checks have completed before raising the PR
-  "prCreation": "not-pending"
+  // Explicitly choose to create PRs immediately (currently the default)
+  "prCreation": "immediate"
 }
