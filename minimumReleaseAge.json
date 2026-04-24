@@ -17,8 +17,7 @@
       "minimumReleaseAge": null,
       "prBodyNotes": [
         "⚠️ Renovate's lock file maintenance functionality does not support validating Minimum Release Age, as the package manager performs the required changes to update package(s). Confirm whether your package manager perform its own validation for the Minimum Release Age of packages."
-      ],
-      "prCreation": "immediate"
+      ]
     },
 
     // Renovate does not currently support minimum release age for replacements
@@ -27,8 +26,7 @@
       "minimumReleaseAge": null,
       "prBodyNotes": [
         "⚠️ Renovate's replacement functionality [does not currently](https://github.com/renovatebot/renovate/issues/39400) wire in the release age for a package, so the Minimum Release Age checks can apply. You will need to manually validate the Minimum Release Age for these package(s)."
-      ],
-      "prCreation": "immediate"
+      ]
     },
 
     // Renovate does not currently support minimum release age for pinning
@@ -37,8 +35,7 @@
       "minimumReleaseAge": null,
       "prBodyNotes": [
         "⚠️ Renovate's pin functionality [does not currently](https://github.com/renovatebot/renovate/issues/40288) wire in the release age for a package, so the Minimum Release Age checks can apply. You will need to manually validate the Minimum Release Age for these package(s)."
-      ],
-      "prCreation": "immediate"
+      ]
     },
 
     // Renovate does not currently effectively support minimum release age for digest updates. While it, according to
@@ -50,8 +47,17 @@
       "minimumReleaseAge": null,
       "prBodyNotes": [
         "⚠️ Renovate's digest functionality does not currently seem to usefully support minimum release age. You will need to manually validate the Minimum Release Age for these package(s)."
-      ],
-      "prCreation": "immediate"
+      ]
+    },
+
+    // Only Docker Hub images support any timestamp at this time
+    {
+      "matchDatasources": ["docker"],
+      "matchRegistryUrls": ["https://ghcr.io"],
+      "minimumReleaseAge": null,
+      "prBodyNotes": [
+        "⚠️ Minimum Release Age is only supported for Docker images from Docker Hub. You will need to manually validate the Minimum Release Age for other images."
+      ]
     },
 
     // Devbox is almost always several days behind, so slightly reduce the minimumReleaseAge to hopefully counteract
