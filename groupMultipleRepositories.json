@@ -16,7 +16,7 @@
     },
     {
       "groupName": "pnpm",
-      "matchPackageNames": ["pnpm"],
+      "matchPackageNames": ["ghcr.io/pnpm/pnpm", "pnpm"],
       "matchUpdateTypes": ["major", "minor", "patch"]
     },
     {
