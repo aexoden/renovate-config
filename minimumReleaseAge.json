@@ -50,10 +50,17 @@
       ]
     },
 
-    // Only Docker Hub images support any timestamp at this time
+    // Only Docker Hub images support any timestamp at this time. Without this rule, every other image is permanently
+    // pending. This must match on the package name, registryUrls is only populated after the minimum release age has\
+    // already been checked.
     {
       "matchDatasources": ["docker"],
-      "matchRegistryUrls": ["https://ghcr.io"],
+      "matchPackageNames": [
+        "/^[^/]+[.:][^/]*\\//",
+        "!docker.io/**",
+        "!index.docker.io/**",
+        "!registry-1.docker.io/**"
+      ],
       "minimumReleaseAge": null,
       "prBodyNotes": [
         "⚠️ Minimum Release Age is only supported for Docker images from Docker Hub. You will need to manually validate the Minimum Release Age for other images."
