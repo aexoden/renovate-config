@@ -1,0 +1,9 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Enable updates of pre-commit hooks",
+
+  // The pre-commit manager is disabled by default, which leaves hook revisions unmanaged
+  "pre-commit": {
+    "enabled": true
+  }
+}
