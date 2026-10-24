@@ -1,13 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "description": "Wait until packages are a week old before raising updates",
+  "description": "Wait until packages are three days old before raising updates",
 
   // Set the internal checks filter to strict explicitly (strict is currently the default)
   "internalChecksFilter": "strict",
 
   // Enable a minimum release age by default for all datasources
-  "minimumReleaseAge": "7 days",
+  "minimumReleaseAge": "3 days",
   "minimumReleaseAgeBehaviour": "timestamp-required",
+
+  // Explicitly exempt vulnerability fixes from the minimum release age (currently the default)
+  "vulnerabilityAlerts": {
+    "minimumReleaseAge": null
+  },
 
   "packageRules": [
     // Renovate does not support minimum release age for lock file maintenance. There are pending issues regarding
@@ -77,13 +82,6 @@
       "prBodyNotes": [
         "⚠️ Minimum Release Age is only supported for Docker images from Docker Hub. You will need to manually validate the Minimum Release Age for other images."
       ]
-    },
-
-    // Devbox is almost always several days behind, so slightly reduce the minimumReleaseAge to hopefully counteract
-    // that somewhat. However, we keep the value of 3 days to provide some protection in case of a nixpkgs compromise.
-    {
-      "matchDatasources": ["devbox"],
-      "minimumReleaseAge": "3 days"
     }
   ],
 
