@@ -29,5 +29,5 @@ repos:
     rev: 44.225.1
     hooks:
       - id: renovate-config-validator
-        args: [--strict]
-        files: '.*\\.json$'
+        args: [--strict, --no-global]
+        files: '\.json$'
