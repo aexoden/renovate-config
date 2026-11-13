@@ -29,9 +29,16 @@
       "matchPackageNames": ["rust"],
       "matchUpdateTypes": ["major", "minor", "patch"]
     },
+    // setup-tombi and tombi-pre-commit release in step with Tombi itself, and a setup-tombi release installs the
+    // Tombi of the same version, so updating them together keeps CI and the pre-commit hook on one Tombi.
+    {
+      "groupName": "Tombi",
+      "matchPackageNames": ["tombi", "tombi-toml/setup-tombi", "tombi-toml/tombi", "tombi-toml/tombi-pre-commit"],
+      "matchUpdateTypes": ["major", "minor", "patch"]
+    },
     {
       "groupName": "uv",
-      "matchPackageNames": ["ghcr.io/astral-sh/uv", "uv"],
+      "matchPackageNames": ["astral-sh/uv", "ghcr.io/astral-sh/uv", "uv"],
       "matchUpdateTypes": ["major", "minor", "patch"]
     }
   ]
