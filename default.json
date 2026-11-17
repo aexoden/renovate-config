@@ -29,6 +29,9 @@
     // Enable updates of pre-commit hooks
     "github>aexoden/renovate-config:preCommit",
 
+    // Enable updates of prek hooks
+    "github>aexoden/renovate-config:prek",
+
     // Update versions that workflows pin in `_VERSION` environment variables, each under a `# renovate:` comment
     // naming its datasource and package, such as a tool installed by taiki-e/install-action or run with uvx
     "customManagers:githubActionsVersions"

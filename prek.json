@@ -1,0 +1,37 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Enable updates of hooks in prek's native prek.toml configuration",
+
+  // Renovate's pre-commit manager only reads YAML, so hook revisions in prek.toml are otherwise unmanaged. This regex
+  // manager is a stopgap until Renovate ships a native prek manager
+  // (https://github.com/renovatebot/renovate/pull/42254), at which point it should be replaced with that manager.
+  //
+  // It expects the rev to be on the line immediately after the repo, which is the layout Tombi preserves:
+  //
+  //   [[repos]]
+  //   repo = "https://github.com/fsfe/reuse-tool"
+  //   rev = "v6.3.0"
+  //
+  // The builtin and local repositories have no rev and are not matched.
+  "customManagers": [
+    {
+      "customType": "regex",
+      "description": "Update the rev of remote hook repositories in prek.toml",
+      "managerFilePatterns": ["/(^|/)prek\\.toml$/"],
+      "matchStrings": [
+        "repo = \"https://github\\.com/(?<depName>[^\"]+?)(?:\\.git)?\"\\n\\s*rev = \"(?<currentValue>[^\"]+)\""
+      ],
+      "datasourceTemplate": "github-tags",
+      "depTypeTemplate": "prek"
+    }
+  ],
+
+  "packageRules": [
+    // Match the commit message topic used by the pre-commit manager ("pre-commit hook <name>")
+    {
+      "matchManagers": ["custom.regex"],
+      "matchDepTypes": ["prek"],
+      "commitMessageTopic": "prek hook {{depName}}"
+    }
+  ]
+}
