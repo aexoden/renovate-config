@@ -21,6 +21,12 @@
       "matchUpdateTypes": ["patch"],
       "matchCurrentVersion": "/^0/",
       "automerge": true
+    },
+
+    // Never automerge Copier template updates
+    {
+      "matchManagers": ["copier"],
+      "automerge": false
     }
   ],
 
